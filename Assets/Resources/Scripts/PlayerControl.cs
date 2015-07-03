@@ -1,4 +1,4 @@
-﻿//#define KEYBOARD
+﻿#define KEYBOARD
 
 using UnityEngine;
 using System.Collections;
@@ -10,7 +10,8 @@ public class PlayerControl : MonoBehaviour
 	public float speed;
 
 	Vector3 direction;
-	Rigidbody2D playerRigidbody;
+    Vector3 rotation;
+    Rigidbody2D playerRigidbody;
 
 	
 	void Awake()
@@ -25,6 +26,9 @@ public class PlayerControl : MonoBehaviour
 		direction.Set(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"),0);
 		direction.z = 0;
 		move (direction);
+
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
 #endif
 	}
 
