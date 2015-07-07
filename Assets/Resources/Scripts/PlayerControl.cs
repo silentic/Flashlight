@@ -18,6 +18,10 @@ public class PlayerControl : MonoBehaviour
 	{
 		playerRigidbody = GetComponent<Rigidbody2D>();
 		moveDirection = Vector3.zero;
+
+#if KEYBOARD
+		GameObject.FindGameObjectWithTag("UI").SetActive(false);
+#endif
 	}
 
 	void Update () 
