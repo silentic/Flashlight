@@ -9,31 +9,38 @@ public class PlayerControl : MonoBehaviour
 
 	public float speed;
 
-	Vector3 direction;
-    Vector3 rotation;
+	Vector3 moveDirection;
+    Vector3 rotateDirection;
     Rigidbody2D playerRigidbody;
 
 	
 	void Awake()
 	{
 		playerRigidbody = GetComponent<Rigidbody2D>();
-		direction = Vector3.zero;
+		moveDirection = Vector3.zero;
 	}
 
 	void Update () 
 	{
 #if KEYBOARD
-		direction.Set(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"),0);
-		direction.z = 0;
-		move (direction);
+		moveDirection.Set(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"),0);
+		moveDirection.z = 0;
+		move (moveDirection);
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
+		rotateDirection = mousePos - transform.position;
+		rotateDirection.z = 0;
+		turn (rotateDirection);
 #endif
 	}
 
 	public void move (Vector3 direction)
 	{
 		playerRigidbody.MovePosition(transform.position + direction * speed * Time.deltaTime);
+	}
+
+	public void turn (Vector3 direction)
+	{
+		transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
 	}
 }
