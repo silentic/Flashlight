@@ -277,6 +277,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9fba0f281d99184f91517d2070dcc98, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &249684608 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11439390, guid: 7fec61fe4e231064fb8320d2de0360ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 588549690}
+  m_Script: {fileID: 11500000, guid: f58c8cbd8f2cc6740b32d5654bfcd895, type: 3}
 --- !u!1001 &314966815
 Prefab:
   m_ObjectHideFlags: 0
@@ -431,6 +437,30 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22419004, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -502,6 +532,162 @@ Prefab:
     - target: {fileID: 22419004, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].eventID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_TypeName
+      value: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 249684608}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: touchStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 249684608}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: touchStop
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].eventID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_TypeName
+      value: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2084342803}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: touchStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2084342803}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: touchStop
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].eventID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2084342803}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: touchStop
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406810, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_TypeName
+      value: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].eventID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 249684608}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: touchStop
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488544, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
+      propertyPath: delegates.Array.data[1].callback.m_TypeName
+      value: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fec61fe4e231064fb8320d2de0360ca, type: 2}
@@ -850,7 +1036,6 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
-  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &1113992402
 MonoBehaviour:
@@ -1237,6 +1422,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0c1cca1b4a96124fa226f70fa38cbf4, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2084342803 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11493178, guid: 7fec61fe4e231064fb8320d2de0360ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 588549690}
+  m_Script: {fileID: 11500000, guid: c17b7d55f0fdfbb4197f02e7972a393a, type: 3}
 --- !u!1001 &2128673618
 Prefab:
   m_ObjectHideFlags: 0
