@@ -4,15 +4,11 @@ using System.Collections;
 public class EnemyScript : MonoBehaviour 
 {
 	SpriteRenderer enemyRenderer;
-	Collider2D collider;
-	Transform player;
 	int visible;
 	// Use this for initialization
 	void Start () 
 	{
 		enemyRenderer = GetComponent<SpriteRenderer>();
-		collider = GetComponent<Collider2D>();
-		player = Game.player.transform;
 		visible = 0;
 
 		Light2D.RegisterEventListener(LightEventListenerType.OnEnter, OnLightEnter);
@@ -20,49 +16,11 @@ public class EnemyScript : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-#if test
 	void Update () 
 	{
-		//out of camera
-		if(!enemyRenderer.IsVisibleFrom(Camera.main))
-		{
-			enemyRenderer.enabled = false;
-			return;
-		}
 
-		Vector2 playerPos =	(Vector2)player.position;
-		Vector2 direction = (Vector2)transform.position - playerPos;
-		float range = direction.magnitude;
-
-		//check object block
-		RaycastHit2D hit = Physics2D.Raycast(playerPos,direction);
-		if(hit.collider != collider)
-		{
-			enemyRenderer.enabled = false;
-			return;
-		}
-
-		//check ouf of maximum sight range
-		if(range > 6)
-		{
-			enemyRenderer.enabled = false;
-			return;
-		}
-
-		Vector2 playerLookRotation = (Vector2)(player.rotation * Vector3.up);
-		float angle = Vector2.Angle(playerLookRotation,direction);
-
-		//check facing
-		if(angle > 25 && range > 2.6f)
-		{
-			enemyRenderer.enabled = false;
-			return;
-		}
-
-		enemyRenderer.enabled = true;
-		return;
 	}
-#endif
+
 	void OnLightEnter(Light2D _light, GameObject _go)
 	{
 		if (_go.GetInstanceID() == gameObject.GetInstanceID())
