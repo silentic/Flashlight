@@ -40,7 +40,7 @@ public class RotateController : MonoBehaviour
 			rectTransform.position = origin + targetDirection;
 			
 			//move player
-			Game.player.GetComponent<PlayerControl>().turn(targetDirection.normalized);
+			player.GetComponent<PlayerControl>().turn(targetDirection.normalized);
 		}
 		else
 		{
