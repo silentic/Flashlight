@@ -242,7 +242,7 @@ public class Light2D : MonoBehaviour
         }
     }
 
-    public void OnEnable()
+    void OnEnable()
     {
         LightEnabled = true;
 
@@ -257,7 +257,7 @@ public class Light2D : MonoBehaviour
             _renderer = gameObject.AddComponent<MeshRenderer>();
     }
 
-    public void OnDisable()
+    void OnDisable()
     {
         LightEnabled = false;
         LateUpdate();
