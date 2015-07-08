@@ -1,4 +1,4 @@
-﻿#define KEYBOARD
+﻿//#define KEYBOARD
 
 using UnityEngine;
 using System.Collections;
@@ -8,19 +8,23 @@ public class PlayerControl : MonoBehaviour
 
 
 	public float speed;
-
-	Vector3 moveDirection;
-    Vector3 rotateDirection;
+	
     Rigidbody2D playerRigidbody;
-
+#if KEYBOARD
+	Vector3 moveDirection;
+	Vector3 rotateDirection;
+#endif
 	
 	void Awake()
 	{
 		playerRigidbody = GetComponent<Rigidbody2D>();
-		moveDirection = Vector3.zero;
 
 #if KEYBOARD
-		GameObject.FindGameObjectWithTag("UI").SetActive(false);
+		moveDirection = Vector3.zero;
+		foreach(GameObject o in GameObject.FindGameObjectsWithTag("Controller"))
+        {
+			o.SetActive(false);
+		}
 #endif
 	}
 
