@@ -3,7 +3,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class ControlPad : MonoBehaviour {
+public class MovementController : MonoBehaviour 
+{
 
 	Vector3 origin;
 	Vector3 targetDirection;
@@ -27,7 +28,7 @@ public class ControlPad : MonoBehaviour {
 			Vector3 mousePosition = Input.mousePosition;
 			mousePosition.z = 0;
 			targetDirection = (mousePosition - origin).normalized;
-			rectTransform.position = origin + targetDirection * 50;
+			rectTransform.position = origin + targetDirection * 25;
 
 			//move player
 			Game.player.GetComponent<PlayerControl>().move(targetDirection);

@@ -3,14 +3,14 @@ using System.Collections;
 
 public class EnemyScript : MonoBehaviour 
 {
-	SpriteRenderer renderer;
+	SpriteRenderer enemyRenderer;
 	Collider2D collider;
 	Transform player;
 	int visible;
 	// Use this for initialization
 	void Start () 
 	{
-		renderer = GetComponent<SpriteRenderer>();
+		enemyRenderer = GetComponent<SpriteRenderer>();
 		collider = GetComponent<Collider2D>();
 		player = Game.player.transform;
 		visible = 0;
@@ -24,9 +24,9 @@ public class EnemyScript : MonoBehaviour
 	void Update () 
 	{
 		//out of camera
-		if(!renderer.IsVisibleFrom(Camera.main))
+		if(!enemyRenderer.IsVisibleFrom(Camera.main))
 		{
-			renderer.enabled = false;
+			enemyRenderer.enabled = false;
 			return;
 		}
 
@@ -38,14 +38,14 @@ public class EnemyScript : MonoBehaviour
 		RaycastHit2D hit = Physics2D.Raycast(playerPos,direction);
 		if(hit.collider != collider)
 		{
-			renderer.enabled = false;
+			enemyRenderer.enabled = false;
 			return;
 		}
 
 		//check ouf of maximum sight range
 		if(range > 6)
 		{
-			renderer.enabled = false;
+			enemyRenderer.enabled = false;
 			return;
 		}
 
@@ -55,11 +55,11 @@ public class EnemyScript : MonoBehaviour
 		//check facing
 		if(angle > 25 && range > 2.6f)
 		{
-			renderer.enabled = false;
+			enemyRenderer.enabled = false;
 			return;
 		}
 
-		renderer.enabled = true;
+		enemyRenderer.enabled = true;
 		return;
 	}
 #endif
@@ -71,7 +71,7 @@ public class EnemyScript : MonoBehaviour
 			{
 				Debug.Log("Object Entered Light");
 
-				renderer.enabled = true;
+				enemyRenderer.enabled = true;
 			}
 			visible += 1;
 		}
@@ -86,7 +86,7 @@ public class EnemyScript : MonoBehaviour
 			{
 				Debug.Log("Object Exited Light");
 
-				renderer.enabled = false;
+				enemyRenderer.enabled = false;
 			}
 
 		}
