@@ -18,7 +18,7 @@ public class RandomLightOff : MonoBehaviour {
 	
 	void LightActive(){
 		num = Random.Range(0,100);
-		Debug.Log ("TestDebug " + num);
+		//Debug.Log ("TestDebug " + num);
 		
 		if(num < prob){		// random light off with XX% probability 
 			StartCoroutine(SleepSecs ());
