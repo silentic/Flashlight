@@ -1,28 +1,30 @@
-﻿#define KEYBOARD
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class Flashlight : MonoBehaviour 
 {
+	public GameObject flashLightObject;
 	Light2D flashLight;
 
 	float battery;
+	bool lightOn;
 	public float consumeRate;
 	public float regenRate;
-	bool lightOn;
+	public bool isTouched;
 
 	//UI 
+
+	public GameObject batteryUIObject;
 	RectTransform batteryUI;
 
 
 	// Use this for initialization
 	void Start () 
 	{
-		flashLight = GetComponent<Light2D>();
+		flashLight = flashLightObject.GetComponent<Light2D>();
 		battery = 100;
 
-		batteryUI = GameObject.FindGameObjectWithTag("Battery").GetComponent<RectTransform>();
+		batteryUI = batteryUIObject.GetComponent<RectTransform>();
 	}
 	
 	// Update is called once per frame
@@ -30,6 +32,8 @@ public class Flashlight : MonoBehaviour
 	{
 #if KEYBOARD
 		if(Input.GetMouseButton(0))
+#else
+		if(isTouched)
 #endif
 		{
 			//our of battery

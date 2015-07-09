@@ -9,20 +9,20 @@ public class RotateController : MonoBehaviour
 	Transform player;
 	RectTransform rectTransform;
 	bool isTouched;
-	
-	public Transform bg;
-	
+	int fingerID;
 	float maxRange;
-	
+
+	public Transform bg;
+
 	// Use this for initialization
 	void Start () 
 	{
 		rectTransform = GetComponent<RectTransform>();
 		origin = rectTransform.position;
 		player = Game.player.transform;
-		
-		float scale = GameObject.Find ("UI").GetComponent<Canvas>().scaleFactor;
-		maxRange = bg.GetComponent<RectTransform>().rect.width*scale/2;
+		fingerID = -1;
+
+		maxRange = bg.GetComponent<RectTransform>().rect.width*Game.UIScale/2;
 	}
 	
 	// Update is called once per frame
@@ -32,13 +32,20 @@ public class RotateController : MonoBehaviour
 		if(isTouched)
 		{
 			//move analog
-			Vector3 mousePosition = Input.mousePosition;
-			mousePosition.z = 0;
-			targetDirection = (mousePosition - origin);
-			if(targetDirection.magnitude > maxRange)
-				targetDirection = targetDirection.normalized*maxRange;
-			rectTransform.position = origin + targetDirection;
-			
+			{
+#if KEYBOARD
+				Vector3 mousePosition = Input.mousePosition;
+#else
+				Vector3 mousePosition = Input.GetTouch(fingerID).position;
+#endif
+
+				mousePosition.z = 0;
+				targetDirection = (mousePosition - origin);
+				if(targetDirection.magnitude > maxRange)
+					targetDirection = targetDirection.normalized*maxRange;
+				rectTransform.position = origin + targetDirection;
+			}
+
 			//move player
 			player.GetComponent<PlayerControl>().turn(targetDirection.normalized);
 		}
@@ -51,10 +58,25 @@ public class RotateController : MonoBehaviour
 	public void touchStart()
 	{
 		isTouched = true;
+
+#if !KEYBOARD
+		foreach(Touch t in Input.touches)
+		{
+			if(t.phase == TouchPhase.Began)
+			{
+				fingerID = t.fingerId;
+				player.GetComponent<Flashlight>().isTouched = true;
+				return;
+			}
+		}
+#endif
 	}
 	
 	public void touchStop()
 	{
 		isTouched = false;
+
+		fingerID = -1;
+		player.GetComponent<Flashlight>().isTouched = false;
 	}
 }

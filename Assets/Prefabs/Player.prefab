@@ -30,7 +30,6 @@ GameObject:
   - 23: {fileID: 2340166}
   - 33: {fileID: 3352756}
   - 114: {fileID: 11486464}
-  - 114: {fileID: 11408814}
   m_Layer: 2
   m_Name: 2D-Cone
   m_TagString: Untagged
@@ -50,6 +49,7 @@ GameObject:
   - 114: {fileID: 11410628}
   - 50: {fileID: 5072276}
   - 58: {fileID: 5881014}
+  - 114: {fileID: 11492908}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -218,19 +218,6 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!114 &11408814
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 965a0eeef7d84ab409b2ed4dc76300d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  consumeRate: 1
-  regenRate: .5
 --- !u!114 &11410628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -307,6 +294,21 @@ MonoBehaviour:
   pivotPoint: {x: 0, y: 0, z: 0}
   pivotPointType: 0
   ignoreOptimizations: 0
+--- !u!114 &11492908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965a0eeef7d84ab409b2ed4dc76300d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashLightObject: {fileID: 127908}
+  consumeRate: 1
+  regenRate: .5
+  batteryUIObject: {fileID: 0}
 --- !u!212 &21240614
 SpriteRenderer:
   m_ObjectHideFlags: 1
