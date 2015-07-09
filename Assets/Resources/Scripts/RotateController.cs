@@ -65,7 +65,7 @@ public class RotateController : MonoBehaviour
 			if(t.phase == TouchPhase.Began)
 			{
 				fingerID = t.fingerId;
-				player.GetComponent<Flashlight>().isTouched = true;
+				player.GetComponent<Flashlight>().touch(true);
 				return;
 			}
 		}
@@ -77,6 +77,6 @@ public class RotateController : MonoBehaviour
 		isTouched = false;
 
 		fingerID = -1;
-		player.GetComponent<Flashlight>().isTouched = false;
+		player.GetComponent<Flashlight>().touch (false);
 	}
 }

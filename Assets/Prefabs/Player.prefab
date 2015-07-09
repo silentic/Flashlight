@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 111218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 472406}
   m_RootOrder: 0
@@ -77,7 +77,7 @@ Transform:
   m_GameObject: {fileID: 127908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 472406}
   m_RootOrder: 1
@@ -244,7 +244,7 @@ MonoBehaviour:
   EDITOR_SHOW_BOUNDS: 1
   EDITOR_SHOW_MESH: 0
   lightType: 0
-  lightRadius: 3
+  lightRadius: 2
   coneStart: 0
   coneAngle: 360
   lightColor: {r: 1, g: .985294104, b: .985294104, a: 0}
@@ -276,7 +276,7 @@ MonoBehaviour:
   EDITOR_SHOW_BOUNDS: 1
   EDITOR_SHOW_MESH: 0
   lightType: 0
-  lightRadius: 5
+  lightRadius: 10
   coneStart: 90
   coneAngle: 50
   lightColor: {r: 1, g: 1, b: 1, a: 0}
@@ -306,8 +306,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashLightObject: {fileID: 127908}
-  consumeRate: 1
-  regenRate: .5
+  consumeRate: .400000006
+  regenRate: .300000012
+  maxBattery: 100
+  hiRadius: 8
+  hiColor: {r: 1, g: 1, b: 1, a: 0}
+  middleBatteryZone: 40
+  middleBatteryRadius: 6
+  middleColor: {r: 1, g: 1, b: 0, a: 1}
+  lowBatteryZone: 15
+  lowBatteryRadius: 4
+  lowColor: {r: 1, g: 0, b: 0, a: 0}
   batteryUIObject: {fileID: 0}
 --- !u!212 &21240614
 SpriteRenderer:

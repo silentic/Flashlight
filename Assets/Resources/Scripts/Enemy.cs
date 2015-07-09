@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyScript : MonoBehaviour 
+public class Enemy : MonoBehaviour 
 {
 	SpriteRenderer enemyRenderer;
 	int visible;
@@ -21,7 +21,7 @@ public class EnemyScript : MonoBehaviour
 
 	}
 
-	void OnLightEnter(Light2D _light, GameObject _go)
+	protected virtual void OnLightEnter(Light2D _light, GameObject _go)
 	{
 		if (_go.GetInstanceID() == gameObject.GetInstanceID())
 		{
@@ -35,7 +35,7 @@ public class EnemyScript : MonoBehaviour
 		}
 	}
 
-	void OnLightExit(Light2D _light, GameObject _go)
+	protected virtual void OnLightExit(Light2D _light, GameObject _go)
 	{
 		if (_go.GetInstanceID() == gameObject.GetInstanceID())
 		{

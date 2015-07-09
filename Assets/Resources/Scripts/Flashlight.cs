@@ -1,30 +1,51 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Flashlight : MonoBehaviour 
 {
 	public GameObject flashLightObject;
 	Light2D flashLight;
-
-	float battery;
+	
 	bool lightOn;
+	bool isTouched;
 	public float consumeRate;
 	public float regenRate;
-	public bool isTouched;
 
-	//UI 
+	float battery;
 
+	[Header("Hi Battery")]
+	public float maxBattery;
+	public float hiRadius;
+	public Color hiColor;
+
+	[Header("Mid Battery")]
+	public float middleBatteryZone;
+	public float middleBatteryRadius;
+	public Color middleColor;
+
+	[Header("Low Battery")]
+	public float lowBatteryZone;
+	public float lowBatteryRadius;
+	public Color lowColor;
+
+
+	[Header("UI")]
 	public GameObject batteryUIObject;
-	RectTransform batteryUI;
+	RectTransform batteryUITransform;
+	Image batteryUIImage;
+	
+
 
 
 	// Use this for initialization
 	void Start () 
 	{
 		flashLight = flashLightObject.GetComponent<Light2D>();
-		battery = 100;
+		batteryUITransform = batteryUIObject.GetComponent<RectTransform>();
+		batteryUIImage = batteryUIObject.GetComponent<Image>();
 
-		batteryUI = batteryUIObject.GetComponent<RectTransform>();
+		battery = maxBattery;
 	}
 	
 	// Update is called once per frame
@@ -53,13 +74,17 @@ public class Flashlight : MonoBehaviour
 			//turn on light
 			if(!lightOn)
 			{
-				flashLight.LightRadius = 5f;
+				//can't turn on when RED
+				if(battery < lowBatteryZone) return;
+
 				lightOn = true;
+
+				//toggle on lost some battery
+				battery = Mathf.Clamp(battery - 2 , 0 , 100);
 			}
 
+			updateLightBeam();
 			battery = Mathf.Clamp(battery - consumeRate , 0 , 100);
-		
-			updateUI();
 		}
 
 		else
@@ -70,13 +95,47 @@ public class Flashlight : MonoBehaviour
 			if(battery < 100)
 			{
 				battery = Mathf.Clamp(battery + regenRate , 0 , 100);
-				updateUI();
 			}
 		}
+		updateUI ();
 	}
 
 	void updateUI()
 	{
-		batteryUI.localScale = new Vector3(battery * 0.01f , 1 , 1);
+		batteryUITransform.localScale = new Vector3(battery * 0.01f , 1 , 1);
+
+		if(battery < lowBatteryZone)
+		{
+			batteryUIImage.color = Color.red;
+		}
+		else if(battery < middleBatteryZone)
+		{
+			batteryUIImage.color = Color.yellow;
+		}
+		else
+		{
+			batteryUIImage.color = Color.white;
+		}
+	}
+
+	void updateLightBeam()
+	{
+		if(battery < lowBatteryZone)
+		{
+			flashLight.LightRadius = lowBatteryRadius;
+		}
+		else if(battery < middleBatteryZone)
+		{
+			flashLight.LightRadius = middleBatteryRadius;
+		}
+		else
+		{
+			flashLight.LightRadius = hiRadius;
+		}
+	}
+
+	public void touch(bool t)
+	{
+		isTouched = t;
 	}
 }
