@@ -14,7 +14,7 @@ GameObject:
   - 108: {fileID: 10813300}
   m_Layer: 2
   m_Name: 2D-Radial
-  m_TagString: Untagged
+  m_TagString: Vision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ GameObject:
   - 114: {fileID: 11486464}
   m_Layer: 2
   m_Name: 2D-Cone
-  m_TagString: Untagged
+  m_TagString: Flashlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

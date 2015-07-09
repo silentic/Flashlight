@@ -4,16 +4,29 @@ using System.Collections;
 public class RandomLightOff : MonoBehaviour {
 
 	private int num;
-	public GameObject parentObject;
 	public int prob;
 
+	GameObject player;
+	Renderer playerRenderer;
+	GameObject parentObject;
+	Renderer lightRenderer;
+
+	Light2D playerVision;
+	Light light;
+
+	public static bool blackOut;
 
 	// Use this for initialization
 	void Start () {
 		
-		parentObject=GameObject.Find("Player");
+		player = Game.player;
+		playerRenderer = player.GetComponent<Renderer>();
 		InvokeRepeating("LightActive", 5, 1);
-		
+		lightRenderer = GetComponent<Renderer>();
+		GameObject visionObject = GameObject.FindGameObjectWithTag("Vision");
+		playerVision = visionObject.GetComponent<Light2D>();;
+		light = visionObject.GetComponent<Light>();
+		blackOut = false;
 	}
 	
 	void LightActive(){
@@ -26,18 +39,15 @@ public class RandomLightOff : MonoBehaviour {
 	}
 	
 	void LightOff(){
-		GetComponent<Renderer>().enabled = !GetComponent<Renderer>().enabled;
-		
-		foreach (Transform t in parentObject.transform) {
-			if (t.name == "2D-Radial"){
-				//t.gameObject.active = !t.gameObject.active;
-				t.gameObject.SetActive(!t.gameObject.activeSelf);
-			}
-			if (t.name == "2D-Cone"){
-				//t.gameObject.active = !t.gameObject.active;
-				t.gameObject.SetActive(!t.gameObject.activeSelf);
-			}
-		}
+		//toggle player
+		playerRenderer.enabled = !playerRenderer.enabled;
+
+		//flashlight - vision
+		blackOut = !blackOut;
+		playerVision.LightRadius = blackOut ? 0f : 2f;
+
+		//3d light on wall
+		light.enabled = !light.enabled;
 	}
 	
 	IEnumerator SleepSecs () { 	
@@ -47,7 +57,7 @@ public class RandomLightOff : MonoBehaviour {
 		LightOff ();
 		yield return new WaitForSeconds(0.1f);
 		LightOff ();
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(2f);
 		LightOff ();
 		InvokeRepeating("LightActive", 5, 1);
 	}

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerControl : MonoBehaviour 
 {
-
+	bool visionOn;
 
 	public float speed;
 	
@@ -49,4 +49,6 @@ public class PlayerControl : MonoBehaviour
 	{
 		transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
 	}
+	
+
 }

@@ -123,6 +123,12 @@ public class Flashlight : MonoBehaviour
 
 	void updateLightBeam()
 	{
+		if(RandomLightOff.blackOut)
+		{
+			flashLight.LightRadius = 0f;
+			return;
+		}
+
 		if(battery < lowBatteryZone)
 		{
 			flashLight.LightRadius = lowBatteryRadius;
