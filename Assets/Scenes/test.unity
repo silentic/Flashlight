@@ -610,6 +610,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &873333399 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 129810, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
+  m_PrefabInternal: {fileID: 1967765081}
+--- !u!114 &873333406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 873333399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d9411ea4eb1444f9830490266e9c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentObject: {fileID: 0}
+  prob: 20
 --- !u!1 &934231622
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +799,6 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
-  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &1113992402
 MonoBehaviour:
@@ -1046,6 +1062,10 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2354130, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492908, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
