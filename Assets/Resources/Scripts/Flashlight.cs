@@ -9,32 +9,35 @@ public class Flashlight : MonoBehaviour
 	
 	bool lightOn;
 	bool isTouched;
+
 	public float consumeRate;
 	public float regenRate;
 
 	float battery;
 
-	[Header("Hi Battery")]
+	[Header("[Flashlight]")]
 	public float maxBattery;
 	public float hiRadius;
 	public Color hiColor;
-
-	[Header("Mid Battery")]
+	[Space (10)]
 	public float middleBatteryZone;
 	public float middleBatteryRadius;
 	public Color middleColor;
-
-	[Header("Low Battery")]
+	[Space (10)]
 	public float lowBatteryZone;
 	public float lowBatteryRadius;
 	public Color lowColor;
 
 
-	[Header("UI")]
+	[Header("[Battery UI]")]
 	public GameObject batteryUIObject;
+	public Color hiBatteryUIColor;
+	public Color middleBatteryUIColor;
+	public Color lowBatteryUIColor;
+
 	RectTransform batteryUITransform;
 	Image batteryUIImage;
-	
+
 
 
 
@@ -106,15 +109,15 @@ public class Flashlight : MonoBehaviour
 
 		if(battery < lowBatteryZone)
 		{
-			batteryUIImage.color = Color.red;
+			batteryUIImage.color = lowBatteryUIColor;
 		}
 		else if(battery < middleBatteryZone)
 		{
-			batteryUIImage.color = Color.yellow;
+			batteryUIImage.color = middleBatteryUIColor;
 		}
 		else
 		{
-			batteryUIImage.color = Color.white;
+			batteryUIImage.color = hiBatteryUIColor;
 		}
 	}
 
@@ -123,14 +126,17 @@ public class Flashlight : MonoBehaviour
 		if(battery < lowBatteryZone)
 		{
 			flashLight.LightRadius = lowBatteryRadius;
+			flashLight.LightColor = lowColor;
 		}
 		else if(battery < middleBatteryZone)
 		{
 			flashLight.LightRadius = middleBatteryRadius;
+			flashLight.LightColor = middleColor;
 		}
 		else
 		{
 			flashLight.LightRadius = hiRadius;
+			flashLight.LightColor = hiColor;
 		}
 	}
 

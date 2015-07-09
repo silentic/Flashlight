@@ -313,11 +313,14 @@ MonoBehaviour:
   hiColor: {r: 1, g: 1, b: 1, a: 0}
   middleBatteryZone: 40
   middleBatteryRadius: 6
-  middleColor: {r: 1, g: 1, b: 0, a: 1}
+  middleColor: {r: .784313738, g: .784313738, b: .784313738, a: 0}
   lowBatteryZone: 15
   lowBatteryRadius: 4
-  lowColor: {r: 1, g: 0, b: 0, a: 0}
+  lowColor: {r: .392156869, g: .392156869, b: .392156869, a: 0}
   batteryUIObject: {fileID: 0}
+  hiBatteryUIColor: {r: 1, g: 1, b: 1, a: 1}
+  middleBatteryUIColor: {r: 1, g: 1, b: 0, a: 1}
+  lowBatteryUIColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!212 &21240614
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 		{
 			if(visible <= 0)
 			{
-				Debug.Log("Object Entered Light");
+				//Debug.Log("Object Entered Light");
 
 				enemyRenderer.enabled = true;
 			}
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
 			visible -= 1;
 			if(visible <= 0)
 			{
-				Debug.Log("Object Exited Light");
+				//Debug.Log("Object Exited Light");
 
 				enemyRenderer.enabled = false;
 			}
