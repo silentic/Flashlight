@@ -45,4 +45,23 @@ public class MapNode : MonoBehaviour
 		}
 	}
 
+	public GameObject getRandomLinkedNode(GameObject tryExcludeNode)
+	{
+		GameObject node;
+		while(true)
+		{
+			int random = Random.Range(0,linkedNode.Count);
+			node = linkedNode[random];
+
+			//1 node = forced return
+			if(linkedNode.Count == 1)
+				return node;
+
+			//exclude visited node
+			if(node != tryExcludeNode)
+				return node;
+		}
+		return null;
+	}
+
 }
