@@ -3,12 +3,20 @@ using System.Collections;
 
 public class Enemy_02 : Enemy
 {
+	Color originalColor;
+	Color enemyColor;
 
+	protected override void Start () 
+	{
+		base.Start();
+
+		originalColor = enemyRenderer.color;
+		enemyColor = originalColor;
+	}
 
 	protected override void enterLightEffect()
 	{
 		base.enterLightEffect();
-
 	}
 
 
@@ -16,11 +24,16 @@ public class Enemy_02 : Enemy
 	{
 		base.exitLightEffect();
 		hp = maxHp;
+		enemyColor = originalColor;
+
 	}
 
 	protected override void stayFlashLightEffect()
 	{
 		hp -= 0.1f;
+		enemyColor.a -= 0.01f;
+		enemyRenderer.color = enemyColor;
+
 		if(hp <= 0)
 		{
 			die ();
@@ -32,3 +45,5 @@ public class Enemy_02 : Enemy
 		Destroy (gameObject);
 	}
 }
+
+

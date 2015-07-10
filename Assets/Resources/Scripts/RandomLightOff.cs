@@ -12,7 +12,7 @@ public class RandomLightOff : MonoBehaviour {
 	Renderer lightRenderer;
 
 	Light2D playerVision;
-	Light light;
+	Light light3D;
 
 	public static bool blackOut;
 
@@ -25,7 +25,7 @@ public class RandomLightOff : MonoBehaviour {
 		lightRenderer = GetComponent<Renderer>();
 		GameObject visionObject = GameObject.FindGameObjectWithTag("Vision");
 		playerVision = visionObject.GetComponent<Light2D>();;
-		light = visionObject.GetComponent<Light>();
+		light3D = visionObject.GetComponent<Light>();
 		blackOut = false;
 	}
 	
@@ -47,7 +47,7 @@ public class RandomLightOff : MonoBehaviour {
 		playerVision.LightRadius = blackOut ? 0f : 2f;
 
 		//3d light on wall
-		light.enabled = !light.enabled;
+		light3D.enabled = !light3D.enabled;
 	}
 	
 	IEnumerator SleepSecs () { 	
