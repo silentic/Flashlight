@@ -7,6 +7,8 @@ TagManager:
   - UI
   - Controller
   - Battery
+  - Vision
+  - Flashlight
   layers:
   - Default
   - TransparentFX
