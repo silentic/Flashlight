@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
 
 		wallLayer = 9;
 		wallMask = 1 << wallLayer;
-		nodeLayer = 10;
+		nodeLayer = 11;
 		nodeMask = 1 << nodeLayer;
 		
 		layerMask = wallMask | nodeMask;
@@ -66,7 +66,15 @@ public class Enemy : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		//if(collider.get
+		//walk to node
+		MapNode currentNode = collider.GetComponent<MapNode>();
+		if(currentNode != null)
+		{
+			GameObject nextNode;
+			nextNode = currentNode.getRandomLinkedNode(lastVisitedNode);
+			targetPosition = nextNode.transform.position;
+			lastVisitedNode = currentNode.gameObject;
+		}
 	}
 
 	#region light
@@ -162,7 +170,6 @@ public class Enemy : MonoBehaviour
 		if(nodes.Count > 0)
 		{
 			int random = Random.Range(0,nodes.Count);
-			Debug.Log(random);
 			return nodes[random];
 		}
 		else return null;
@@ -174,8 +181,6 @@ public class Enemy : MonoBehaviour
 		if(hit.collider == null) return null;
 		if(hit.collider.tag == "Node")
 		{
-			Debug.Log("check : " + direction);
-			Debug.Log("return : " + hit.collider.gameObject);
 			return hit.collider.gameObject;
 		}
 		return null;
