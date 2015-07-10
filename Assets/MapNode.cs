@@ -10,7 +10,6 @@ public class MapNode : MonoBehaviour
 	int wallMask;
 	int nodeLayer;
 	int nodeMask;
-
 	int layerMask;
 
 	// Use this for initialization

@@ -9,6 +9,7 @@ TagManager:
   - Battery
   - Vision
   - Flashlight
+  - Node
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - 
   - 
   - Player
-  - 
-  - 
+  - Wall
+  - Node
   - 
   - 
   - 

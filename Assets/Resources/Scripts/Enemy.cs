@@ -1,18 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour 
 {
 	public float speed;
 	public float maxHp;
 	protected float hp;
-	Vector3 direction;
 
 	protected SpriteRenderer enemyRenderer;
 	Rigidbody2D enemyRigidbody;
+
 	int visible;
-	bool moving;
+
+	int wallLayer;
+	int wallMask;
+	int nodeLayer;
+	int nodeMask;
+	int layerMask;
 	
+	Vector3 targetPosition;
+	GameObject lastVisitedNode;
+
 	// Use this for initialization
 	protected virtual void Start () 
 	{
@@ -20,14 +29,22 @@ public class Enemy : MonoBehaviour
 
 		enemyRenderer = GetComponent<SpriteRenderer>();
 		enemyRigidbody = GetComponent<Rigidbody2D>();
+
 		visible = 0;
-		moving = false;
+
+		wallLayer = 9;
+		wallMask = 1 << wallLayer;
+		nodeLayer = 10;
+		nodeMask = 1 << nodeLayer;
+		
+		layerMask = wallMask | nodeMask;
 
 		Light2D.RegisterEventListener(LightEventListenerType.OnStay, OnLightStay);
 		Light2D.RegisterEventListener(LightEventListenerType.OnEnter, OnLightEnter);
 		Light2D.RegisterEventListener(LightEventListenerType.OnExit, OnLightExit);
 
-		move (randomPath());
+		targetPosition = findNode().transform.position;
+		//Debug.DrawLine(transform.position,targetPosition,Color.white,1000f);
 	}
 
 	protected virtual void OnDestroy()
@@ -36,13 +53,23 @@ public class Enemy : MonoBehaviour
 		Light2D.UnregisterEventListener(LightEventListenerType.OnEnter, OnLightEnter);
 		Light2D.UnregisterEventListener(LightEventListenerType.OnExit, OnLightExit);
 	}
-	
-	// Update is called once per frame
+
 	protected virtual void Update () 
 	{
 
 	}
+	
+	void FixedUpdate()
+	{
+		moveToward(targetPosition);
+	}
 
+	void OnTriggerEnter2D(Collider2D collider)
+	{
+		//if(collider.get
+	}
+
+	#region light
 	protected void OnLightEnter(Light2D light, GameObject go)
 	{
 		if (go.GetInstanceID() == gameObject.GetInstanceID())
@@ -98,53 +125,61 @@ public class Enemy : MonoBehaviour
 	{
 	}
 
-	public virtual void move (Vector3 direction)
+	#endregion
+
+	void moveToward(Vector3 position)
 	{
-		RaycastHit2D hit = Physics2D.Raycast(transform.position , direction);
-		if(hit != null)
-		{
-			Debug.Log("TEST");
-			if(hit.distance < 2)
-				moving = false;
-			else
-			{	
-				moving = true;
-				this.direction = direction;
-				enemyRigidbody.MovePosition(transform.position + direction * speed * Time.deltaTime);
-				//move (direction);
-			}
-		}
+		Vector3 direction = position - transform.position;
+		move (direction);
+	}
+
+	public virtual void move (Vector2 direction)
+	{
+		enemyRigidbody.MovePosition((Vector2)transform.position + direction.normalized * speed * Time.deltaTime);
 	}
 	
-	public virtual void turn (Vector3 direction)
+	public virtual void turn (Vector2 direction)
 	{
 		transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
 	}
 
-	void FixedUpdate()
+	GameObject findNode()
 	{
-		if(moving)
-			move (direction);
-		else
-			move (randomPath());
+		List<GameObject> nodes = new List<GameObject>();
+
+		//check and add to random pull
+		GameObject temp;
+		temp = checkNode(Vector2.up);
+		if(temp != null) nodes.Add(temp);
+		temp = checkNode(Vector2.down);
+		if(temp != null) nodes.Add(temp);
+		temp = checkNode(Vector2.left);
+		if(temp != null) nodes.Add(temp);
+		temp = checkNode(Vector2.right);
+		if(temp != null) nodes.Add(temp);
+
+		//return random node
+		if(nodes.Count > 0)
+		{
+			int random = Random.Range(0,nodes.Count);
+			Debug.Log(random);
+			return nodes[random];
+		}
+		else return null;
 	}
 
-	Vector3 randomPath()
+	GameObject checkNode(Vector2 direction)
 	{
-		int r = Random.Range(0,4);
-		Vector3 direction;
-		switch(r)
+		RaycastHit2D hit = Physics2D.Raycast(transform.position , direction , Mathf.Infinity , layerMask);
+		if(hit.collider == null) return null;
+		if(hit.collider.tag == "Node")
 		{
-			case 0:
-				return Vector2.up;
-			case 1:
-				return Vector2.down;
-			case 2:
-				return Vector2.left;			
-			case 3:
-				return Vector2.right;
+			Debug.Log("check : " + direction);
+			Debug.Log("return : " + hit.collider.gameObject);
+			return hit.collider.gameObject;
 		}
-		return Vector3.zero;
+		return null;
 	}
+
 }
 
