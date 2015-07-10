@@ -18,7 +18,7 @@ public class MapNode : MonoBehaviour
 		linkedNode = new List<GameObject>();
 		wallLayer = 9;
 		wallMask = 1 << wallLayer;
-		nodeLayer = 10;
+		nodeLayer = 11;
 		nodeMask = 1 << nodeLayer;
 
 		layerMask = wallMask | nodeMask;
