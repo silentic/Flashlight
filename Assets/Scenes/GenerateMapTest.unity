@@ -585,26 +585,6 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 2354130, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2340166, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 419704, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492908, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: consumeRate
-      value: .100000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492908, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: regenRate
-      value: .600000024
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
   m_IsPrefabParent: 0

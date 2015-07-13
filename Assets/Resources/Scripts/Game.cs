@@ -6,6 +6,11 @@ public class Game : MonoBehaviour
 	public static GameObject player;
 
 	public static float UIScale;
+	
+	[HideInInspector]
+	public static int wallMask = LayerMask.GetMask("Wall");
+	[HideInInspector]
+	public static int nodeMask = LayerMask.GetMask("Node");
 
 	//Assign from Hierarchy
 	public GameObject pauseScreen;
