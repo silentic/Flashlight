@@ -44,6 +44,7 @@ MonoBehaviour:
   blockWidth: 5
   blockHeight: 5
   wallBreakProb: 5
+  hasBorder: 1
   middlePosition: {x: 0, y: 0}
   wallPrefabs: {fileID: 113470, guid: 6b104fe5f0589ed44a98e113c478f611, type: 2}
   nodePrefabs: {fileID: 119586, guid: 82d40396aee48e14cbb9ae33300b2891, type: 2}
@@ -54,7 +55,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: hasBorder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 160588}

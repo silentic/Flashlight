@@ -460,6 +460,10 @@ Prefab:
       propertyPath: minimapCamera
       value: 
       objectReference: {fileID: 232304570}
+    - target: {fileID: 11446822, guid: 85804005717b65b44aaa08ae782a8896, type: 2}
+      propertyPath: hasBorder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85804005717b65b44aaa08ae782a8896, type: 2}
   m_IsPrefabParent: 0

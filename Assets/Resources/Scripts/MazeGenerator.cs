@@ -8,6 +8,8 @@ public class MazeGenerator : MonoBehaviour {
     public float blockWidth;
     public float blockHeight;
     public float wallBreakProb;
+    public bool hasBorder;
+    [HideInInspector]
     public Block[,] mazeArray;
 
     public Vector2 middlePosition;
@@ -139,14 +141,17 @@ public class MazeGenerator : MonoBehaviour {
                 }
             }
         }
-        GameObject wallRightMost = Instantiate(wallPrefabs, getPosition(width - 1, 0) + new Vector2(blockWidth / 2, blockHeight * (height-1) / 2), Quaternion.identity) as GameObject;
-        wallRightMost.transform.localScale = new Vector3(0.1f, 0.5f * height, 1);
-        GameObject wallLeftMost = Instantiate(wallPrefabs, getPosition(0, 0) + new Vector2(-blockWidth / 2, blockHeight * (height-1) / 2), Quaternion.identity) as GameObject;
-        wallLeftMost.transform.localScale = new Vector3(0.1f, 0.5f * height, 1);
-        GameObject wallUpMost = Instantiate(wallPrefabs, getPosition(0, height - 1) + new Vector2(blockWidth * (width-1) / 2, blockHeight / 2), Quaternion.identity) as GameObject;
-        wallUpMost.transform.localScale = new Vector3(0.5f * width, 0.1f, 1);
-        GameObject wallDownMost = Instantiate(wallPrefabs, getPosition(0, 0) + new Vector2(blockWidth * (width-1) / 2, -blockHeight / 2), Quaternion.identity) as GameObject;
-        wallDownMost.transform.localScale = new Vector3(0.5f * width, 0.1f, 1);
+        if (hasBorder)
+        {
+            GameObject wallRightMost = Instantiate(wallPrefabs, getPosition(width - 1, 0) + new Vector2(blockWidth / 2, blockHeight * (height - 1) / 2), Quaternion.identity) as GameObject;
+            wallRightMost.transform.localScale = new Vector3(0.1f, 0.5f * height, 1);
+            GameObject wallLeftMost = Instantiate(wallPrefabs, getPosition(0, 0) + new Vector2(-blockWidth / 2, blockHeight * (height - 1) / 2), Quaternion.identity) as GameObject;
+            wallLeftMost.transform.localScale = new Vector3(0.1f, 0.5f * height, 1);
+            GameObject wallUpMost = Instantiate(wallPrefabs, getPosition(0, height - 1) + new Vector2(blockWidth * (width - 1) / 2, blockHeight / 2), Quaternion.identity) as GameObject;
+            wallUpMost.transform.localScale = new Vector3(0.5f * width, 0.1f, 1);
+            GameObject wallDownMost = Instantiate(wallPrefabs, getPosition(0, 0) + new Vector2(blockWidth * (width - 1) / 2, -blockHeight / 2), Quaternion.identity) as GameObject;
+            wallDownMost.transform.localScale = new Vector3(0.5f * width, 0.1f, 1);
+        }
     }
 
     public Vector2 getPosition(int x, int y)
