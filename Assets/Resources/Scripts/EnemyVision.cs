@@ -38,9 +38,22 @@ public class EnemyVision : MonoBehaviour
 			{
 				if(Vector3.Angle(mainObject.transform.right , ray) < viewAngle/2)
 				{
-					Debug.Log("see");
+					if(!mainObject.chasingPlayer)
+					{
+						mainObject.chasingPlayer = true;
+					}
+					mainObject.targetPosition = player.transform.position;
 				}
 			}
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D otherCollider)
+	{
+		if(otherCollider.tag == "Player")
+		{
+			mainObject.chasingPlayer = false;
+			mainObject.gotoNearbyNode();
 		}
 	}
 }

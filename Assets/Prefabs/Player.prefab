@@ -12,7 +12,7 @@ GameObject:
   - 33: {fileID: 3382594}
   - 114: {fileID: 11417962}
   - 108: {fileID: 10813300}
-  m_Layer: 2
+  m_Layer: 1
   m_Name: 2D-Radial
   m_TagString: Vision
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 23: {fileID: 2340166}
   - 33: {fileID: 3352756}
   - 114: {fileID: 11486464}
-  m_Layer: 2
+  m_Layer: 1
   m_Name: 2D-Cone
   m_TagString: Flashlight
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   - 50: {fileID: 5072276}
   - 58: {fileID: 5881014}
   - 114: {fileID: 11492908}
-  m_Layer: 2
+  m_Layer: 1
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.75999999, y: 0, z: 0}
+  m_LocalPosition: {x: 1.75999999, y: 7.90999985, z: 0}
   m_LocalScale: {x: .300000012, y: .300000012, z: 1}
   m_Children:
   - {fileID: 419704}
@@ -252,7 +252,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 2e315e17bd410cb4b9f6503813f09da9, type: 2}
   shadowLayer:
     serializedVersion: 2
-    m_Bits: 4294967289
+    m_Bits: 4294965241
   useEvents: 1
   lightEnabled: 1
   beamSize: 25
@@ -284,7 +284,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: e59eef300ef3e7d49b4def05ab2750f2, type: 2}
   shadowLayer:
     serializedVersion: 2
-    m_Bits: 4294967289
+    m_Bits: 4294965241
   useEvents: 1
   lightEnabled: 1
   beamSize: 25

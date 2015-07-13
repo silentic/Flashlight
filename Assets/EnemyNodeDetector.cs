@@ -8,16 +8,12 @@ public class EnemyNodeDetector : MonoBehaviour
 
 	GameObject lastVisitedNode;
 	
-	int layerMask;
+	static int layerMask = Game.wallMask | Game.nodeMask;
 
 	// Use this for initialization
 	void Start () 
 	{
 		mainObject = transform.parent.GetComponent<Enemy>();
-		
-		layerMask = Game.wallMask | Game.nodeMask;
-
-
 	}
 	
 	// Update is called once per frame
@@ -28,16 +24,18 @@ public class EnemyNodeDetector : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		//walk to node
-		MapNode currentNode = collider.GetComponent<MapNode>();
-		if(currentNode != null)
+		if(!mainObject.chasingPlayer)
 		{
-			GameObject nextNode;
-			nextNode = currentNode.getRandomLinkedNode(lastVisitedNode);
-			mainObject.targetPosition = nextNode.transform.position;
-			lastVisitedNode = currentNode.gameObject;
-			
-			return;
+			MapNode currentNode = collider.GetComponent<MapNode>();
+			if(currentNode != null)
+			{
+				GameObject nextNode;
+				nextNode = currentNode.getRandomLinkedNode(lastVisitedNode);
+				mainObject.targetPosition = nextNode.transform.position;
+				lastVisitedNode = currentNode.gameObject;
+				
+				return;
+			}
 		}
 		
 		PlayerControl player = collider.GetComponent<PlayerControl>();
@@ -50,7 +48,7 @@ public class EnemyNodeDetector : MonoBehaviour
 	public GameObject findNode()
 	{
 		List<GameObject> nodes = new List<GameObject>();
-		
+		Debug.Log(nodes.Count);
 		//check and add to random pull
 		GameObject temp;
 		temp = checkNode(Vector2.up);
@@ -78,6 +76,7 @@ public class EnemyNodeDetector : MonoBehaviour
 		if(hit.collider.tag == "Node")
 		{
 			return hit.collider.gameObject;
+
 		}
 		return null;
 	}

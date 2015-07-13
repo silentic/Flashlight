@@ -8,9 +8,9 @@ public class Game : MonoBehaviour
 	public static float UIScale;
 	
 	[HideInInspector]
-	public static int wallMask;
+	public static int wallMask = LayerMask.GetMask("Wall");
 	[HideInInspector]
-	public static int nodeMask;
+	public static int nodeMask = LayerMask.GetMask("Node");
 
 	//Assign from Hierarchy
 	public GameObject pauseScreen;
@@ -21,9 +21,6 @@ public class Game : MonoBehaviour
 
 		player = GameObject.FindGameObjectWithTag("Player");
 		UIScale = GameObject.Find ("UI").GetComponent<Canvas>().scaleFactor;
-
-		wallMask = LayerMask.GetMask("Minimap");
-		nodeMask = LayerMask.GetMask("Node");
 	}
 
 	void Update () 

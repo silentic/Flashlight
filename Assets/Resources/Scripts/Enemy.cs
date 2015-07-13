@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
 	EnemyNodeDetector nodeDetector;
 
 	int visible;
+	[HideInInspector]
+	public bool chasingPlayer = false;
 
 	[HideInInspector]
 	public Vector3 targetPosition;
@@ -32,7 +34,7 @@ public class Enemy : MonoBehaviour
 		Light2D.RegisterEventListener(LightEventListenerType.OnEnter, OnLightEnter);
 		Light2D.RegisterEventListener(LightEventListenerType.OnExit, OnLightExit);
 
-		targetPosition = nodeDetector.findNode().transform.position;
+		gotoNearbyNode();
 	}
 
 	protected virtual void OnDestroy()
@@ -132,6 +134,10 @@ public class Enemy : MonoBehaviour
 		enemyRigidbody.MoveRotation(Vector2.Angle( transform.right , direction));
 	}
 
+	public void gotoNearbyNode()
+	{
+		targetPosition = nodeDetector.findNode().transform.position;
+	}
 
 
 }
