@@ -6,22 +6,14 @@ public class MapNode : MonoBehaviour
 {
 
 	List<GameObject> linkedNode;
-	int wallLayer;
-	int wallMask;
-	int nodeLayer;
-	int nodeMask;
 	int layerMask;
 
 	// Use this for initialization
 	void Start () 
 	{
 		linkedNode = new List<GameObject>();
-		wallLayer = 9;
-		wallMask = 1 << wallLayer;
-		nodeLayer = 11;
-		nodeMask = 1 << nodeLayer;
 
-		layerMask = wallMask | nodeMask;
+		layerMask = Game.wallMask | Game.nodeMask;
 		checkLinkedNode(Vector2.up);
 		checkLinkedNode(Vector2.down);
 		checkLinkedNode(Vector2.left);

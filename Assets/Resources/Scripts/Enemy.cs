@@ -10,41 +10,29 @@ public class Enemy : MonoBehaviour
 
 	protected SpriteRenderer enemyRenderer;
 	Rigidbody2D enemyRigidbody;
+	EnemyNodeDetector nodeDetector;
 
 	int visible;
 
-	int wallLayer;
-	int wallMask;
-	int nodeLayer;
-	int nodeMask;
-	int layerMask;
-	
-	Vector3 targetPosition;
-	GameObject lastVisitedNode;
+	[HideInInspector]
+	public Vector3 targetPosition;
 
 	// Use this for initialization
 	protected virtual void Start () 
 	{
 		hp = maxHp;
 
-		enemyRenderer = GetComponent<SpriteRenderer>();
+		enemyRenderer = GetComponentInChildren<SpriteRenderer>();
 		enemyRigidbody = GetComponent<Rigidbody2D>();
+		nodeDetector = GetComponentInChildren<EnemyNodeDetector>();
 
 		visible = 0;
-
-		wallLayer = 9;
-		wallMask = 1 << wallLayer;
-		nodeLayer = 11;
-		nodeMask = 1 << nodeLayer;
-		
-		layerMask = wallMask | nodeMask;
 
 		Light2D.RegisterEventListener(LightEventListenerType.OnStay, OnLightStay);
 		Light2D.RegisterEventListener(LightEventListenerType.OnEnter, OnLightEnter);
 		Light2D.RegisterEventListener(LightEventListenerType.OnExit, OnLightExit);
 
-		targetPosition = findNode().transform.position;
-		//Debug.DrawLine(transform.position,targetPosition,Color.white,1000f);
+		targetPosition = nodeDetector.findNode().transform.position;
 	}
 
 	protected virtual void OnDestroy()
@@ -62,22 +50,12 @@ public class Enemy : MonoBehaviour
 	void FixedUpdate()
 	{
 		moveToward(targetPosition);
+		//turn(targetPosition.normalized);
 	}
 
-	void OnTriggerEnter2D(Collider2D collider)
-	{
-		//walk to node
-		MapNode currentNode = collider.GetComponent<MapNode>();
-		if(currentNode != null)
-		{
-			GameObject nextNode;
-			nextNode = currentNode.getRandomLinkedNode(lastVisitedNode);
-			targetPosition = nextNode.transform.position;
-			lastVisitedNode = currentNode.gameObject;
-		}
-	}
 
-	#region light
+
+	#region LIGHT
 	protected void OnLightEnter(Light2D light, GameObject go)
 	{
 		if (go.GetInstanceID() == gameObject.GetInstanceID())
@@ -135,6 +113,7 @@ public class Enemy : MonoBehaviour
 
 	#endregion
 
+	#region MOVE
 	void moveToward(Vector3 position)
 	{
 		Vector3 direction = position - transform.position;
@@ -144,47 +123,16 @@ public class Enemy : MonoBehaviour
 	public virtual void move (Vector2 direction)
 	{
 		enemyRigidbody.MovePosition((Vector2)transform.position + direction.normalized * speed * Time.deltaTime);
-	}
-	
+	}	
+	#endregion
+
 	public virtual void turn (Vector2 direction)
 	{
-		transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+		//transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+		enemyRigidbody.MoveRotation(Vector2.Angle( transform.right , direction));
 	}
 
-	GameObject findNode()
-	{
-		List<GameObject> nodes = new List<GameObject>();
 
-		//check and add to random pull
-		GameObject temp;
-		temp = checkNode(Vector2.up);
-		if(temp != null) nodes.Add(temp);
-		temp = checkNode(Vector2.down);
-		if(temp != null) nodes.Add(temp);
-		temp = checkNode(Vector2.left);
-		if(temp != null) nodes.Add(temp);
-		temp = checkNode(Vector2.right);
-		if(temp != null) nodes.Add(temp);
-
-		//return random node
-		if(nodes.Count > 0)
-		{
-			int random = Random.Range(0,nodes.Count);
-			return nodes[random];
-		}
-		else return null;
-	}
-
-	GameObject checkNode(Vector2 direction)
-	{
-		RaycastHit2D hit = Physics2D.Raycast(transform.position , direction , Mathf.Infinity , layerMask);
-		if(hit.collider == null) return null;
-		if(hit.collider.tag == "Node")
-		{
-			return hit.collider.gameObject;
-		}
-		return null;
-	}
 
 }
 
