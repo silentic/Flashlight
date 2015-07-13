@@ -66,8 +66,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostOnTheScreen: {fileID: 0}
-  ghostScreenProb: 2
-  ghostScreenDuration: 2
+  ghostScreenProb: .200000003
+  ghostScreenDuration: 1.5
+  ghostScreenDelay: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
