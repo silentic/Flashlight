@@ -2126,6 +2126,30 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2393116, guid: a9fba0f281d99184f91517d2070dcc98, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455466, guid: a9fba0f281d99184f91517d2070dcc98, type: 2}
+      propertyPath: coneStart
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089072, guid: a9fba0f281d99184f91517d2070dcc98, type: 2}
+      propertyPath: m_AngularDrag
+      value: 1e+06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089072, guid: a9fba0f281d99184f91517d2070dcc98, type: 2}
+      propertyPath: m_LinearDrag
+      value: 1e+06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089072, guid: a9fba0f281d99184f91517d2070dcc98, type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089072, guid: a9fba0f281d99184f91517d2070dcc98, type: 2}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9fba0f281d99184f91517d2070dcc98, type: 2}
   m_IsPrefabParent: 0
@@ -2459,6 +2483,18 @@ Prefab:
     - target: {fileID: 3382594, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354130, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2340166, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486464, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
+      propertyPath: coneStart
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}

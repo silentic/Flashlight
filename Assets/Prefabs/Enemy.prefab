@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  turningSpeed: 3
   maxHp: 1
   chasingPlayer: 0
   targetPosition: {x: 0, y: 0, z: 0}
@@ -318,6 +319,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Radius
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: turningSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

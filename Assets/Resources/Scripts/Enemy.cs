@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Enemy : MonoBehaviour 
 {
 	public float speed;
+	public float turningSpeed;
 	public float maxHp;
 	protected float hp;
 
@@ -52,11 +53,9 @@ public class Enemy : MonoBehaviour
 	void FixedUpdate()
 	{
 		moveToward(targetPosition);
-		//turn(targetPosition.normalized);
+		turn(targetPosition - transform.position);
 	}
-
-
-
+	
 	#region LIGHT
 	protected void OnLightEnter(Light2D light, GameObject go)
 	{
@@ -126,18 +125,23 @@ public class Enemy : MonoBehaviour
 	{
 		enemyRigidbody.MovePosition((Vector2)transform.position + direction.normalized * speed * Time.deltaTime);
 	}	
-	#endregion
-
-	public virtual void turn (Vector2 direction)
-	{
-		//transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
-		enemyRigidbody.MoveRotation(Vector2.Angle( transform.right , direction));
-	}
 
 	public void gotoNearbyNode()
 	{
 		targetPosition = nodeDetector.findNode().transform.position;
 	}
+	#endregion
+
+	public virtual void turn (Vector2 direction)
+	{
+		//transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+		var newRotation = Quaternion.LookRotation(Vector3.forward,  direction);
+		newRotation.x = 0.0f;
+		newRotation.y = 0.0f;
+		transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * turningSpeed);
+	}
+
+
 
 
 }

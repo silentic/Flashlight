@@ -101,6 +101,10 @@ public class Flashlight : MonoBehaviour
 			}
 		}
 		updateUI ();
+
+#if MAXBATTERY
+		battery = maxBattery;
+#endif
 	}
 
 	void updateUI()

@@ -36,7 +36,7 @@ public class EnemyVision : MonoBehaviour
 			RaycastHit2D hit = Physics2D.Raycast(transform.position , ray.normalized , ray.magnitude , layerMask);
 			if(hit.collider.tag == "Player")
 			{
-				if(Vector3.Angle(mainObject.transform.right , ray) < viewAngle/2)
+				if(Vector3.Angle(mainObject.transform.up , ray) < viewAngle/2)
 				{
 					if(!mainObject.chasingPlayer)
 					{
