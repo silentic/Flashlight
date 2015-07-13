@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
 		hp = maxHp;
 
 		enemyRenderer = GetComponentInChildren<SpriteRenderer>();
+		enemyRenderer.enabled = false;
 		enemyRigidbody = GetComponent<Rigidbody2D>();
 		nodeDetector = GetComponentInChildren<EnemyNodeDetector>();
 
@@ -141,6 +142,14 @@ public class Enemy : MonoBehaviour
 		transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * turningSpeed);
 	}
 
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		if(collision.collider.tag == "Player")
+		{
+			Debug.Log("GameOver");
+			Game.manager.gameOver();
+		}
+	}
 
 
 
