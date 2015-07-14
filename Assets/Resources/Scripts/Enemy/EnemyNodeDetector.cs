@@ -6,7 +6,8 @@ public class EnemyNodeDetector : MonoBehaviour
 {
 	Enemy mainObject;
 
-	GameObject lastVisitedNode;
+	[HideInInspector]
+	public GameObject lastVisitedNode;
 	
 	static int layerMask = Game.wallMask | Game.nodeMask;
 
@@ -48,7 +49,6 @@ public class EnemyNodeDetector : MonoBehaviour
 	public GameObject findNode()
 	{
 		List<GameObject> nodes = new List<GameObject>();
-		Debug.Log(nodes.Count);
 		//check and add to random pull
 		GameObject temp;
 		temp = checkNode(Vector2.up);

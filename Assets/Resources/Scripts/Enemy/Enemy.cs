@@ -148,6 +148,13 @@ public class Enemy : MonoBehaviour
 		{
 			Debug.Log("GameOver");
 			Game.manager.gameOver();
+			return;
+		}
+
+		Enemy enemy = collision.collider.GetComponent<Enemy>();
+		if(enemy != null)
+		{
+			gotoNearbyNode();
 		}
 	}
 

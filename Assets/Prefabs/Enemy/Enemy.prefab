@@ -161,7 +161,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110434}
   m_Mass: 1
-  m_LinearDrag: 1e+06
+  m_LinearDrag: 10
   m_AngularDrag: 1
   m_GravityScale: 0
   m_IsKinematic: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   EDITOR_SHOW_MESH: 0
   lightType: 0
   lightRadius: 5
-  coneStart: 0
+  coneStart: 90
   coneAngle: 90
   lightColor: {r: 1, g: 0, b: 0, a: 1}
   lightDetail: 288
@@ -276,9 +276,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 104420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87225315c7ba141a96e647c7323c45, type: 3}
+  m_Script: {fileID: 11500000, guid: ee4beccaa2398f848bcd14bdf8440c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastVisitedNode: {fileID: 0}
 --- !u!212 &21234910
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -323,6 +324,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: turningSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: coneStart
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LinearDrag
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
