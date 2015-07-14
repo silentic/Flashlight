@@ -32,8 +32,9 @@ public class MapNode : MonoBehaviour
 		RaycastHit2D hit = Physics2D.Raycast(transform.position , direction, Mathf.Infinity , layerMask);
 		if(hit.collider.tag == "Node")
 		{
-			linkedNode.Add(hit.collider.gameObject);
-			Debug.DrawLine(transform.position,hit.collider.gameObject.transform.position,Color.white,1000f);
+			GameObject node = hit.collider.transform.parent.gameObject;
+			linkedNode.Add(node);
+			Debug.DrawLine(transform.position,node.transform.position,Color.white,1000f);
 		}
 	}
 

@@ -33,16 +33,10 @@ public class EnemyNodeDetector : MonoBehaviour
 				GameObject nextNode;
 				nextNode = currentNode.getRandomLinkedNode(lastVisitedNode);
 				mainObject.targetPosition = nextNode.transform.position;
-				lastVisitedNode = currentNode.gameObject;
+				lastVisitedNode = currentNode.transform.parent.gameObject;
 				
 				return;
 			}
-		}
-		
-		PlayerControl player = collider.GetComponent<PlayerControl>();
-		if(player != null)
-		{
-			Debug.Log("Crash Player");
 		}
 	}
 		
@@ -75,7 +69,7 @@ public class EnemyNodeDetector : MonoBehaviour
 		if(hit.collider == null) return null;
 		if(hit.collider.tag == "Node")
 		{
-			return hit.collider.gameObject;
+			return hit.collider.transform.parent.gameObject;
 
 		}
 		return null;

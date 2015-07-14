@@ -10,6 +10,7 @@ TagManager:
   - Vision
   - Flashlight
   - Node
+  - NodeCenter
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,6 @@ TagManager:
   - Minimap
   - Wall
   - Node
-  - 
   - 
   - 
   - 
