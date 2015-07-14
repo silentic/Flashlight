@@ -345,7 +345,7 @@ MonoBehaviour:
   middleColor: {r: .784313738, g: .784313738, b: .784313738, a: 0}
   lowBatteryZone: 15
   lowBatteryRadius: 4
-  lowColor: {r: .392156869, g: .392156869, b: .392156869, a: 0}
+  lowColor: {r: .760784388, g: .760784388, b: .760784388, a: 0}
   batteryUIObject: {fileID: 0}
   hiBatteryUIColor: {r: 1, g: 1, b: 1, a: 1}
   middleBatteryUIColor: {r: 1, g: 1, b: 0, a: 1}
@@ -408,7 +408,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: lowColor.r
+      value: .760784388
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lowColor.g
+      value: .760784388
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lowColor.b
+      value: .760784388
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129810}

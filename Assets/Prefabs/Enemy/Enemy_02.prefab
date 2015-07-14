@@ -55,7 +55,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  turningSpeed: 0
   maxHp: 10
+  chasingPlayer: 0
+  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &21259556
 SpriteRenderer:
   m_ObjectHideFlags: 1
