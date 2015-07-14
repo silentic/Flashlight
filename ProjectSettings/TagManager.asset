@@ -10,7 +10,6 @@ TagManager:
   - Vision
   - Flashlight
   - Node
-  - NodeCenter
   layers:
   - Default
   - TransparentFX

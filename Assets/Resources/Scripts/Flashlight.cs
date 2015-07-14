@@ -12,6 +12,7 @@ public class Flashlight : MonoBehaviour
 
 	public float consumeRate;
 	public float regenRate;
+	float turnOnPenalty;
 
 	float battery;
 
@@ -48,6 +49,8 @@ public class Flashlight : MonoBehaviour
 		batteryUITransform = batteryUIObject.GetComponent<RectTransform>();
 		batteryUIImage = batteryUIObject.GetComponent<Image>();
 
+		turnOnPenalty = Mathf.Clamp( (regenRate - consumeRate)/2 , 0 , regenRate );
+
 		battery = maxBattery;
 	}
 	
@@ -83,11 +86,11 @@ public class Flashlight : MonoBehaviour
 				lightOn = true;
 
 				//toggle on lost some battery
-				battery = Mathf.Clamp(battery - 2 , 0 , 100);
+				battery = Mathf.Clamp(battery - turnOnPenalty , 0 , 100);
 			}
 
 			updateLightBeam();
-			battery = Mathf.Clamp(battery - consumeRate , 0 , 100);
+			battery = Mathf.Clamp(battery - consumeRate*Time.fixedDeltaTime , 0 , 100);
 		}
 
 		else
@@ -97,7 +100,7 @@ public class Flashlight : MonoBehaviour
 
 			if(battery < 100)
 			{
-				battery = Mathf.Clamp(battery + regenRate , 0 , 100);
+				battery = Mathf.Clamp(battery + regenRate*Time.fixedDeltaTime , 0 , 100);
 			}
 		}
 		updateUI ();

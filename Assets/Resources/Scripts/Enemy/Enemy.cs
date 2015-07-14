@@ -129,7 +129,9 @@ public class Enemy : MonoBehaviour
 
 	public void gotoNearbyNode()
 	{
-		targetPosition = nodeDetector.findNode().transform.position;
+		GameObject node = nodeDetector.findNode();
+		if(node != null)
+			targetPosition = nodeDetector.findNode().transform.position;
 	}
 	#endregion
 

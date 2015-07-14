@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3b476849e0fb84aa275d4d46f900eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 4
 --- !u!114 &11417962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -277,7 +277,7 @@ MonoBehaviour:
   coneStart: 0
   coneAngle: 360
   lightColor: {r: 1, g: .985294104, b: .985294104, a: 0}
-  lightDetail: 288
+  lightDetail: 384
   lightMaterial: {fileID: 2100000, guid: 2e315e17bd410cb4b9f6503813f09da9, type: 2}
   shadowLayer:
     serializedVersion: 2
@@ -309,7 +309,7 @@ MonoBehaviour:
   coneStart: 90
   coneAngle: 50
   lightColor: {r: 1, g: 1, b: 1, a: 0}
-  lightDetail: 288
+  lightDetail: 384
   lightMaterial: {fileID: 2100000, guid: e59eef300ef3e7d49b4def05ab2750f2, type: 2}
   shadowLayer:
     serializedVersion: 2
@@ -335,15 +335,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashLightObject: {fileID: 127908}
-  consumeRate: .100000001
-  regenRate: .600000024
+  consumeRate: 5
+  regenRate: 15
   maxBattery: 100
   hiRadius: 8
   hiColor: {r: 1, g: 1, b: 1, a: 0}
   middleBatteryZone: 40
   middleBatteryRadius: 6
   middleColor: {r: .784313738, g: .784313738, b: .784313738, a: 0}
-  lowBatteryZone: 15
+  lowBatteryZone: 20
   lowBatteryRadius: 4
   lowColor: {r: .760784388, g: .760784388, b: .760784388, a: 0}
   batteryUIObject: {fileID: 0}
@@ -423,7 +423,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lightDetail
-      value: 288
+      value: 384
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

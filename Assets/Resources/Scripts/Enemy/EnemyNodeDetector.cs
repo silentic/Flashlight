@@ -25,19 +25,21 @@ public class EnemyNodeDetector : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		if(!mainObject.chasingPlayer)
+		MapNode currentNode = collider.GetComponent<MapNode>();
+		if(currentNode != null)
 		{
-			MapNode currentNode = collider.GetComponent<MapNode>();
-			if(currentNode != null)
+			if(mainObject.chasingPlayer)
 			{
-				GameObject nextNode;
-				nextNode = currentNode.getRandomLinkedNode(lastVisitedNode);
-				mainObject.targetPosition = nextNode.transform.position;
 				lastVisitedNode = currentNode.transform.parent.gameObject;
-				
 				return;
 			}
+
+			GameObject nextNode;
+			nextNode = currentNode.getRandomLinkedNode(lastVisitedNode);
+			mainObject.targetPosition = nextNode.transform.position;
+			lastVisitedNode = currentNode.transform.parent.gameObject;
 		}
+
 	}
 		
 	public GameObject findNode()

@@ -578,10 +578,35 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 196988, guid: 9f3003e759186724faeb1c391d056b67, type: 2}
   m_PrefabInternal: {fileID: 333717005}
+--- !u!1 &1405612644 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 133740, guid: 1290f7f34f31a8e4ebca41e11a1c6bed, type: 2}
+  m_PrefabInternal: {fileID: 1727542450}
+--- !u!114 &1405612647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1405612644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7bd38f0f640b0048af243ec645bb100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs: {fileID: 110434, guid: 10caa284e9f1530408bfdbcc44334b72, type: 2}
+  minimumSpawnRange: 10
+  spawnNumber: 2
+  maze: {fileID: 1432643749}
 --- !u!4 &1412362757 stripped
 Transform:
   m_PrefabParentObject: {fileID: 472406, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
   m_PrefabInternal: {fileID: 1663644296}
+--- !u!114 &1432643749 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11408170, guid: 1290f7f34f31a8e4ebca41e11a1c6bed,
+    type: 2}
+  m_PrefabInternal: {fileID: 1727542450}
+  m_Script: {fileID: 11500000, guid: 68c871b3d802f8d498e2ad836883865a, type: 3}
 --- !u!224 &1437564129 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22419004, guid: 7fec61fe4e231064fb8320d2de0360ca,
@@ -634,37 +659,33 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11492908, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: batteryUIObject
-      value: 
-      objectReference: {fileID: 1503180725}
-    - target: {fileID: 3352756, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3382594, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 2340166, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 3352756, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2354130, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11492908, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: consumeRate
-      value: .200000003
+    - target: {fileID: 2340166, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11492908, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: regenRate
-      value: .400000006
+      propertyPath: batteryUIObject
+      value: 
+      objectReference: {fileID: 1503180725}
+    - target: {fileID: 11417962, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
+      propertyPath: lightDetail
+      value: 480
       objectReference: {fileID: 0}
-    - target: {fileID: 11410628, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: speed
-      value: 4
+    - target: {fileID: 11486464, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
+      propertyPath: lightDetail
+      value: 480
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}

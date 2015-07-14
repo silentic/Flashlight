@@ -56,19 +56,29 @@ public class Game : MonoBehaviour
 
 	public void restart()
 	{
-		Application.LoadLevel("test");
+		Application.LoadLevel(Application.loadedLevelName);
 		Time.timeScale = 1f;
 		gameoverScreen.SetActive(false);
-		startGame();
+		//startGame();
 	}
 
 	public void startGame()
 	{
 		Debug.Log("start new game");
 
-		GetComponentInChildren<MazeGenerator>().createMaze();
-		EnemySpawner spawner = GetComponentInChildren<EnemySpawner>();
-		spawner.spawn(spawner.spawnNumber);
+		foreach(Transform node in GameObject.Find("Nodes").transform)
+		{
+			Destroy(node.gameObject);
+		}
+		foreach(Transform wall in GameObject.Find("Walls").transform)
+		{
+			Destroy(wall.gameObject);
+		}
 
+		GetComponentInChildren<MazeGenerator>().createMaze();
+		foreach(EnemySpawner spawner in GetComponentsInChildren<EnemySpawner>())
+		{
+			spawner.spawn(spawner.spawnNumber);
+		}
 	}
 }

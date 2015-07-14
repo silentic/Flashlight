@@ -3,20 +3,26 @@ using System.Collections;
 
 public class Enemy_01 : Enemy
 {
+	public float onLightSpeed = 3;
+	public float normalSpeed = 5;
 
-
-	protected override void enterLightEffect()
+	protected override void Start()
 	{
-		base.enterLightEffect();
+		base.Start();
 
+		speed = normalSpeed;
 	}
 
+	protected override void stayFlashLightEffect()
+	{
+		speed = onLightSpeed;
+	}
 
 	protected override void exitLightEffect()
 	{
 		base.exitLightEffect();
 		
-		die ();
+		speed = normalSpeed;
 	}
 
 	void die()
