@@ -20,7 +20,7 @@ public class Game : MonoBehaviour
 
 	void Awake () 
 	{
-		Time.fixedDeltaTime = 0.02f;
+		Time.fixedDeltaTime = 0.01f;
 
 		manager = GameObject.Find ("GameManager").GetComponent<Game>();
 		player = GameObject.FindGameObjectWithTag("Player");

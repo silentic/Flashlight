@@ -277,7 +277,7 @@ MonoBehaviour:
   coneStart: 0
   coneAngle: 360
   lightColor: {r: 1, g: .985294104, b: .985294104, a: 0}
-  lightDetail: 1008
+  lightDetail: 288
   lightMaterial: {fileID: 2100000, guid: 2e315e17bd410cb4b9f6503813f09da9, type: 2}
   shadowLayer:
     serializedVersion: 2
@@ -309,7 +309,7 @@ MonoBehaviour:
   coneStart: 90
   coneAngle: 50
   lightColor: {r: 1, g: 1, b: 1, a: 0}
-  lightDetail: 1008
+  lightDetail: 288
   lightMaterial: {fileID: 2100000, guid: e59eef300ef3e7d49b4def05ab2750f2, type: 2}
   shadowLayer:
     serializedVersion: 2
@@ -420,6 +420,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: lowColor.b
       value: .760784388
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lightDetail
+      value: 288
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

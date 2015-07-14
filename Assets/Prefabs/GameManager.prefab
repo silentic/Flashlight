@@ -149,7 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs: {fileID: 110434, guid: a9fba0f281d99184f91517d2070dcc98, type: 2}
   minimumSpawnRange: 10
-  spawnNumber: 0
+  spawnNumber: 5
+  maze: {fileID: 11408170}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

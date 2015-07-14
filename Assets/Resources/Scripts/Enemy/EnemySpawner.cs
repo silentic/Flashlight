@@ -7,13 +7,12 @@ public class EnemySpawner : MonoBehaviour
 	public float minimumSpawnRange = 10f;
 	public int spawnNumber;
 
-	MazeGenerator maze;
+	public MazeGenerator maze;
 
 	// Use this for initialization
 	void Awake () 
 	{
-		maze = transform.parent.GetComponentInChildren<MazeGenerator>();
-		Debug.Log(maze);
+		//maze = transform.parent.GetComponentInChildren<MazeGenerator>();
 	}
 	
 	// Update is called once per frame
@@ -24,7 +23,6 @@ public class EnemySpawner : MonoBehaviour
 
 	public void spawn(int numberToSpawn)
 	{
-		Debug.Log(maze);
 		int i=0;
 		while(i < numberToSpawn)
 		{

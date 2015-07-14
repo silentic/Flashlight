@@ -151,11 +151,20 @@ public class Enemy : MonoBehaviour
 			return;
 		}
 
+	}
+
+	void OnCollisionStay2D(Collision2D collision)
+	{
 		Enemy enemy = collision.collider.GetComponent<Enemy>();
-		if(enemy != null)
+		if(!chasingPlayer)
 		{
-			gotoNearbyNode();
+			if(enemy != null)
+			{
+				gotoNearbyNode();
+				return;
+			}
 		}
+
 	}
 
 
