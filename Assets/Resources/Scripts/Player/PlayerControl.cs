@@ -26,7 +26,7 @@ public class PlayerControl : MonoBehaviour
 #endif
 	}
 
-	void Update () 
+	void FixedUpdate () 
 	{
 #if KEYBOARD
 		moveDirection.Set(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"),0);
