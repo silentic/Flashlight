@@ -126,18 +126,21 @@ public class MazeGenerator : MonoBehaviour {
                 {
                     GameObject wallRight = Instantiate(wallPrefabs, getPosition(i,j) + new Vector2(blockWidth / 2, 0), Quaternion.identity) as GameObject;
                     wallRight.transform.localScale = new Vector3(0.1f, 0.5f, 1);
+					wallRight.transform.SetParent(GameObject.Find ("Walls").transform);
                 }
                 if (j < height - 1 && !mazeArray[i, j].up)
                 {
                     GameObject wallDown = Instantiate(wallPrefabs, getPosition(i, j) + new Vector2(0, blockHeight / 2), Quaternion.identity) as GameObject;
                     wallDown.transform.localScale = new Vector3(0.5f, 0.1f, 1);
+					wallDown.transform.SetParent(GameObject.Find ("Walls").transform);
                 }
                 bool lr = mazeArray[i, j].left || mazeArray[i, j].right;
                 bool ud = mazeArray[i, j].up || mazeArray[i, j].down;
                 
                 if (lr && ud)
                 {
-                    Instantiate(nodePrefabs, getPosition(i, j), Quaternion.identity);
+                    GameObject node = (GameObject)Instantiate(nodePrefabs, getPosition(i, j), Quaternion.identity);
+					node.transform.SetParent(GameObject.Find ("Nodes").transform);
                 }
             }
         }
@@ -145,12 +148,16 @@ public class MazeGenerator : MonoBehaviour {
         {
             GameObject wallRightMost = Instantiate(wallPrefabs, getPosition(width - 1, 0) + new Vector2(blockWidth / 2, blockHeight * (height - 1) / 2), Quaternion.identity) as GameObject;
             wallRightMost.transform.localScale = new Vector3(0.1f, 0.5f * height, 1);
+			wallRightMost.transform.SetParent(GameObject.Find ("Walls").transform);
             GameObject wallLeftMost = Instantiate(wallPrefabs, getPosition(0, 0) + new Vector2(-blockWidth / 2, blockHeight * (height - 1) / 2), Quaternion.identity) as GameObject;
             wallLeftMost.transform.localScale = new Vector3(0.1f, 0.5f * height, 1);
+			wallLeftMost.transform.SetParent(GameObject.Find ("Walls").transform);
             GameObject wallUpMost = Instantiate(wallPrefabs, getPosition(0, height - 1) + new Vector2(blockWidth * (width - 1) / 2, blockHeight / 2), Quaternion.identity) as GameObject;
             wallUpMost.transform.localScale = new Vector3(0.5f * width, 0.1f, 1);
+			wallUpMost.transform.SetParent(GameObject.Find ("Walls").transform);
             GameObject wallDownMost = Instantiate(wallPrefabs, getPosition(0, 0) + new Vector2(blockWidth * (width - 1) / 2, -blockHeight / 2), Quaternion.identity) as GameObject;
             wallDownMost.transform.localScale = new Vector3(0.5f * width, 0.1f, 1);
+			wallDownMost.transform.SetParent(GameObject.Find ("Walls").transform);
         }
     }
 
