@@ -25,6 +25,8 @@ public class Game : MonoBehaviour
 		manager = GameObject.Find ("GameManager").GetComponent<Game>();
 		player = GameObject.FindGameObjectWithTag("Player");
 		UIScale = GameObject.Find ("UI").GetComponent<Canvas>().scaleFactor;
+
+		startGame();
 	}
 
 	void Update () 
@@ -54,6 +56,7 @@ public class Game : MonoBehaviour
 
 	public void restart()
 	{
+		Application.LoadLevel("test");
 		Time.timeScale = 1f;
 		gameoverScreen.SetActive(false);
 		startGame();
@@ -62,6 +65,10 @@ public class Game : MonoBehaviour
 	public void startGame()
 	{
 		Debug.Log("start new game");
-		Application.LoadLevel("test");
+
+		GetComponentInChildren<MazeGenerator>().createMaze();
+		EnemySpawner spawner = GetComponentInChildren<EnemySpawner>();
+		spawner.spawn(spawner.spawnNumber);
+
 	}
 }

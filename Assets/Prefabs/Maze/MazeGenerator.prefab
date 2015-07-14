@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 496518}
   - 114: {fileID: 11446822}
+  - 114: {fileID: 11408204}
   m_Layer: 0
   m_Name: MazeGenerator
   m_TagString: Untagged
@@ -28,6 +29,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11408204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7bd38f0f640b0048af243ec645bb100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs: {fileID: 110434, guid: a9fba0f281d99184f91517d2070dcc98, type: 2}
 --- !u!114 &11446822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -47,7 +60,7 @@ MonoBehaviour:
   hasBorder: 1
   middlePosition: {x: 0, y: 0}
   wallPrefabs: {fileID: 113470, guid: 6b104fe5f0589ed44a98e113c478f611, type: 2}
-  nodePrefabs: {fileID: 119586, guid: 82d40396aee48e14cbb9ae33300b2891, type: 2}
+  nodePrefabs: {fileID: 141800, guid: 9b066296b8ce2aa4c81563d551d45bd6, type: 2}
   minimapCamera: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

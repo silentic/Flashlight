@@ -34,7 +34,7 @@ public class MapNode : MonoBehaviour
 		{
 			GameObject node = hit.collider.transform.parent.gameObject;
 			linkedNode.Add(node);
-			Debug.DrawLine(transform.position,node.transform.position,Color.white,1000f);
+			Debug.DrawLine(transform.position,node.transform.position,Color.white,10f);
 		}
 	}
 

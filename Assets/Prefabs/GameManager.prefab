@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &133740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 401254}
+  - 114: {fileID: 11481960}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &139256
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +25,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 497902}
   - 114: {fileID: 11405518}
-  - 114: {fileID: 11409304}
   - 114: {fileID: 11481492}
   m_Layer: 0
   m_Name: GameManager
@@ -18,6 +33,46 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &191686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 427584}
+  - 114: {fileID: 11408170}
+  m_Layer: 0
+  m_Name: MazeGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &401254
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 497902}
+  m_RootOrder: 0
+--- !u!4 &427584
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191686}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 497902}
+  m_RootOrder: 1
 --- !u!4 &497902
 Transform:
   m_ObjectHideFlags: 1
@@ -27,7 +82,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 401254}
+  - {fileID: 427584}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &11405518
@@ -42,18 +99,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 0}
---- !u!114 &11409304
+  gameoverScreen: {fileID: 0}
+--- !u!114 &11408170
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 139256}
+  m_GameObject: {fileID: 191686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73d9411ea4eb1444f9830490266e9c4a, type: 3}
+  m_Script: {fileID: 11500000, guid: 68c871b3d802f8d498e2ad836883865a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prob: 2
+  width: 15
+  height: 14
+  blockWidth: 5
+  blockHeight: 5
+  wallBreakProb: 5
+  hasBorder: 1
+  middlePosition: {x: 0, y: 0}
+  wallPrefabs: {fileID: 113470, guid: 6b104fe5f0589ed44a98e113c478f611, type: 2}
+  nodePrefabs: {fileID: 141800, guid: 9b066296b8ce2aa4c81563d551d45bd6, type: 2}
+  minimapCamera: {fileID: 0}
 --- !u!114 &11481492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,6 +136,20 @@ MonoBehaviour:
   ghostScreenProb: .200000003
   ghostScreenDuration: 1.5
   ghostScreenDelay: 5
+--- !u!114 &11481960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7bd38f0f640b0048af243ec645bb100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs: {fileID: 110434, guid: a9fba0f281d99184f91517d2070dcc98, type: 2}
+  minimumSpawnRange: 10
+  spawnNumber: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

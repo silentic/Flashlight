@@ -49,22 +49,28 @@ public class MazeGenerator : MonoBehaviour {
         }
     }
 
-	void Awake () {
-	    upperLeftPosition = new Vector2(width* blockWidth / 2, height * blockHeight / 2);
+	void Awake () 
+	{
 
-        mazeArray = new Block[width, height];
-        for (int i = 0; i < width; i++)
-        {
-            for (int j = 0; j < height; j++)
-            {
-                mazeArray[i, j] = new Block(i,j);
-            }
-        }
-
-        dfsMaze(0,0);
-        generateMaze();
-        minimapCamera.orthographicSize = Mathf.Max(width * 11 / 5 + 1, height * 13 / 5 + 1);
     }
+
+	public void createMaze()
+	{
+		upperLeftPosition = new Vector2(width* blockWidth / 2, height * blockHeight / 2);
+		
+		mazeArray = new Block[width, height];
+		for (int i = 0; i < width; i++)
+		{
+			for (int j = 0; j < height; j++)
+			{
+				mazeArray[i, j] = new Block(i,j);
+			}
+		}
+		
+		dfsMaze(0,0);
+		generateMaze();
+		minimapCamera.orthographicSize = Mathf.Max(width * 11 / 5 + 1, height * 13 / 5 + 1);
+	}
 
     private void dfsMaze(int x, int y)
     {
