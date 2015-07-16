@@ -10,10 +10,13 @@ public class Enemy : MonoBehaviour
 	protected float hp;
 
 	protected SpriteRenderer enemyRenderer;
+
 	Rigidbody2D enemyRigidbody;
+
 	EnemyNodeDetector nodeDetector;
 
 	int visible;
+
 	[HideInInspector]
 	public bool chasingPlayer = false;
 
@@ -24,11 +27,11 @@ public class Enemy : MonoBehaviour
 	protected virtual void Start () 
 	{
 		hp = maxHp;
-
 		enemyRenderer = GetComponentInChildren<SpriteRenderer>();
 		enemyRenderer.enabled = false;
 		enemyRigidbody = GetComponent<Rigidbody2D>();
 		nodeDetector = GetComponentInChildren<EnemyNodeDetector>();
+
 
 		visible = 0;
 

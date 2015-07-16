@@ -10,9 +10,9 @@ public class Game : MonoBehaviour
 	public static float UIScale;
 	
 	[HideInInspector]
-	public static int wallMask = LayerMask.GetMask("Wall");
+	public static int wallMask ;//= LayerMask.GetMask("Wall");
 	[HideInInspector]
-	public static int nodeMask = LayerMask.GetMask("Node");
+	public static int nodeMask ;//= LayerMask.GetMask("Node");
 
 	//Assign from Hierarchy
 	public GameObject pauseScreen;
@@ -21,6 +21,9 @@ public class Game : MonoBehaviour
 	void Awake () 
 	{
 		Time.fixedDeltaTime = 0.01f;
+
+		wallMask = LayerMask.GetMask("Wall");
+		nodeMask = LayerMask.GetMask("Node");
 
 		manager = GameObject.Find ("GameManager").GetComponent<Game>();
 		player = GameObject.FindGameObjectWithTag("Player");

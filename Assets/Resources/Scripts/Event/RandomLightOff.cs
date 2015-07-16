@@ -44,7 +44,7 @@ public class RandomLightOff : MonoBehaviour {
 
 		//flashlight - vision
 		blackOut = !blackOut;
-		playerVision.LightRadius = blackOut ? 0f : 2f;
+		playerVision.LightRadius = blackOut ? 0f : PlayerControl.playerVision;
 
 		//3d light on wall
 		light3D.enabled = !light3D.enabled;

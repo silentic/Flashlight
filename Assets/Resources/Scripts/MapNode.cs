@@ -6,14 +6,14 @@ public class MapNode : MonoBehaviour
 {
 
 	List<GameObject> linkedNode;
-	static int layerMask = Game.wallMask | Game.nodeMask;
+	static int layerMask;
 
 	// Use this for initialization
 	void Start () 
 	{
 		linkedNode = new List<GameObject>();
+		layerMask = Game.wallMask | Game.nodeMask;
 
-		//layerMask = Game.wallMask | Game.nodeMask;
 		checkLinkedNode(Vector2.up);
 		checkLinkedNode(Vector2.down);
 		checkLinkedNode(Vector2.left);
@@ -34,7 +34,9 @@ public class MapNode : MonoBehaviour
 		{
 			GameObject node = hit.collider.transform.parent.gameObject;
 			linkedNode.Add(node);
+#if DEBUG
 			Debug.DrawLine(transform.position,node.transform.position,Color.white,10f);
+#endif
 		}
 	}
 

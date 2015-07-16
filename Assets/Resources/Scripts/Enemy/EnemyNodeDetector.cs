@@ -9,12 +9,13 @@ public class EnemyNodeDetector : MonoBehaviour
 	[HideInInspector]
 	public GameObject lastVisitedNode;
 	
-	static int layerMask = Game.wallMask | Game.nodeMask;
+	static int layerMask ;
 
 	// Use this for initialization
 	void Start () 
 	{
 		mainObject = transform.parent.GetComponent<Enemy>();
+		layerMask = Game.wallMask | Game.nodeMask;
 	}
 	
 	// Update is called once per frame

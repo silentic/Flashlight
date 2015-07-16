@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class Flashlight : MonoBehaviour 
 {
-	public GameObject flashLightObject;
 	Light2D flashLight;
 	
 	bool lightOn;
@@ -45,7 +44,7 @@ public class Flashlight : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		flashLight = flashLightObject.GetComponent<Light2D>();
+		flashLight = transform.FindChild("Flashlight").GetComponent<Light2D>();
 		batteryUITransform = batteryUIObject.GetComponent<RectTransform>();
 		batteryUIImage = batteryUIObject.GetComponent<Image>();
 
@@ -152,6 +151,7 @@ public class Flashlight : MonoBehaviour
 			flashLight.LightColor = hiColor;
 		}
 	}
+
 
 	public void touch(bool t)
 	{

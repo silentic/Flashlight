@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Serialization;
 
 public class RandomEventGenerator : MonoBehaviour {
-
+	
     int eventStatusCount;
 
+	[SerializeField]
     [Header("[Ghost On The Screen]")]
-    public GameObject ghostOnTheScreen;
+	private GameObject ghostObject;
+	public GameObject ghostOnTheScreen
+	{
+		get { return ghostObject; }
+		set { ghostObject = value; }
+	}
     public float ghostScreenProb;
     public float ghostScreenDuration;
     public float ghostScreenDelay;

@@ -5,8 +5,8 @@ public class MazeGenerator : MonoBehaviour {
 
     public int width;
     public int height;
-    public float blockWidth;
-    public float blockHeight;
+    float blockWidth = 5;
+    float blockHeight = 5;
     public float wallBreakProb;
     public bool hasBorder;
     [HideInInspector]
@@ -143,7 +143,7 @@ public class MazeGenerator : MonoBehaviour {
                 bool lr = mazeArray[i, j].left || mazeArray[i, j].right;
                 bool ud = mazeArray[i, j].up || mazeArray[i, j].down;
                 
-                if (lr && ud)
+				if ((lr && ud) || mazeArray[i, j].way == 1)
                 {
                     GameObject node = (GameObject)Instantiate(nodePrefabs, getPosition(i, j), Quaternion.identity);
 					node.transform.SetParent(GameObject.Find ("Nodes").transform);

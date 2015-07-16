@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Serialization;
 
 public class PlayerControl : MonoBehaviour 
+
 {
 	bool visionOn;
+	public float visionRange;
+	public static float playerVision;
 
 	public float speed;
 	
@@ -16,7 +20,7 @@ public class PlayerControl : MonoBehaviour
 	void Awake()
 	{
 		playerRigidbody = GetComponent<Rigidbody2D>();
-
+		playerVision = visionRange;
 #if KEYBOARD
 		moveDirection = Vector3.zero;
 		foreach(GameObject o in GameObject.FindGameObjectsWithTag("Controller"))
