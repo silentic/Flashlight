@@ -816,6 +816,14 @@ Prefab:
       propertyPath: visionRange
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2354130, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2340166, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
   m_IsPrefabParent: 0
@@ -948,6 +956,14 @@ Prefab:
       propertyPath: gameoverScreen
       value: 
       objectReference: {fileID: 786144532}
+    - target: {fileID: 11481492, guid: 1290f7f34f31a8e4ebca41e11a1c6bed, type: 2}
+      propertyPath: ghostOnTheScreen
+      value: 
+      objectReference: {fileID: 111568, guid: f1dcda3dfe4c8864890b49e1cbf5e286, type: 2}
+    - target: {fileID: 11481492, guid: 1290f7f34f31a8e4ebca41e11a1c6bed, type: 2}
+      propertyPath: ghostScreenProb
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1290f7f34f31a8e4ebca41e11a1c6bed, type: 2}
   m_IsPrefabParent: 0

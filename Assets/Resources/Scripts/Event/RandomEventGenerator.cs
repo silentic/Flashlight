@@ -6,14 +6,8 @@ public class RandomEventGenerator : MonoBehaviour {
 	
     int eventStatusCount;
 
-	[SerializeField]
-    [Header("[Ghost On The Screen]")]
-	private GameObject ghostObject;
-	public GameObject ghostOnTheScreen
-	{
-		get { return ghostObject; }
-		set { ghostObject = value; }
-	}
+	public GameObject ghostOnTheScreen;
+
     public float ghostScreenProb;
     public float ghostScreenDuration;
     public float ghostScreenDelay;
