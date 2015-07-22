@@ -800,45 +800,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3352756, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3382594, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 11492908, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
       propertyPath: batteryUIObject
       value: 
       objectReference: {fileID: 1503180725}
-    - target: {fileID: 11492908, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: middleBatteryZone
-      value: 40
+    - target: {fileID: 3382594, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 2340166, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2354130, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492908, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: maxBattery
-      value: 100
+    - target: {fileID: 3352756, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11410628, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
       propertyPath: visionRange
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5072276, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492908, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
-      propertyPath: consumeRate
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a441652ba1b792d4689b69e95a4b171d, type: 2}
@@ -956,6 +932,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11408170, guid: 1290f7f34f31a8e4ebca41e11a1c6bed, type: 2}
+      propertyPath: minimapCamera
+      value: 
+      objectReference: {fileID: 232304570}
     - target: {fileID: 11481492, guid: 1290f7f34f31a8e4ebca41e11a1c6bed, type: 2}
       propertyPath: ghostObject
       value: 
@@ -968,10 +948,6 @@ Prefab:
       propertyPath: gameoverScreen
       value: 
       objectReference: {fileID: 786144532}
-    - target: {fileID: 11408170, guid: 1290f7f34f31a8e4ebca41e11a1c6bed, type: 2}
-      propertyPath: minimapCamera
-      value: 
-      objectReference: {fileID: 232304570}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1290f7f34f31a8e4ebca41e11a1c6bed, type: 2}
   m_IsPrefabParent: 0

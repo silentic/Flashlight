@@ -17,7 +17,7 @@ public class MazeGenerator : MonoBehaviour {
 
     public GameObject wallPrefabs;
     public GameObject nodePrefabs;
-    public Camera minimapCamera;
+	public Camera minimapCamera;
 
     public class Block{
         public int way;
@@ -70,6 +70,9 @@ public class MazeGenerator : MonoBehaviour {
 		dfsMaze(0,0);
 		generateMaze();
 		minimapCamera.orthographicSize = Mathf.Max(width * 11 / 5 + 1, height * 13 / 5 + 1);
+
+		if(generateExit)
+			createExit();
 	}
 
     private void dfsMaze(int x, int y)
@@ -173,4 +176,30 @@ public class MazeGenerator : MonoBehaviour {
         float posY = (y - ((height-1) / 2.0f)) * blockHeight;
         return new Vector2(posX, posY) + middlePosition;
     }
+
+
+
+	#region Exit
+
+	[Space(10)]
+	public bool generateExit;
+	public GameObject exitObject;
+	public float minimumExitRange;
+
+	void createExit()
+	{
+		int targetX = Random.Range(0,width);
+		int targetY = Random.Range(0,height);
+
+		Vector2 targetPosition = getPosition(targetX , targetY);
+		if((targetPosition - (Vector2)Game.player.transform.position).magnitude < minimumExitRange)
+		{
+			createExit();
+		}
+		else
+		{
+			Instantiate(exitObject,targetPosition,Quaternion.identity);
+		}
+	}
+	#endregion
 }

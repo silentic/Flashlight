@@ -81,7 +81,7 @@ Transform:
   m_GameObject: {fileID: 111218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 472406}
   m_RootOrder: 0
@@ -158,7 +158,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2e315e17bd410cb4b9f6503813f09da9, type: 2}
+  - {fileID: 2100000, guid: e59eef300ef3e7d49b4def05ab2750f2, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -201,7 +201,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &5881014
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -279,7 +279,7 @@ MonoBehaviour:
   coneAngle: 360
   lightColor: {r: 1, g: .985294104, b: .985294104, a: 0}
   lightDetail: 480
-  lightMaterial: {fileID: 2100000, guid: 2e315e17bd410cb4b9f6503813f09da9, type: 2}
+  lightMaterial: {fileID: 2100000, guid: e59eef300ef3e7d49b4def05ab2750f2, type: 2}
   shadowLayer:
     serializedVersion: 2
     m_Bits: 4294965241

@@ -136,6 +136,9 @@ MonoBehaviour:
   wallPrefabs: {fileID: 113470, guid: 6b104fe5f0589ed44a98e113c478f611, type: 2}
   nodePrefabs: {fileID: 141800, guid: 9b066296b8ce2aa4c81563d551d45bd6, type: 2}
   minimapCamera: {fileID: 0}
+  generateExit: 1
+  exitObject: {fileID: 112082, guid: 128e27b564712374380f510a2ead35fb, type: 2}
+  minimumExitRange: 10
 --- !u!114 &11409608
 MonoBehaviour:
   m_ObjectHideFlags: 1
